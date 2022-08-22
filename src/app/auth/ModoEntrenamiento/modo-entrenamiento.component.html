@@ -67,54 +67,91 @@
 
       </div>
     </div>
-    <div class="row" *ngIf="ResultadosPorDominio!=undefined" style="margin-bottom: 10px;">
-      <div class="col-12 col-md-3">
-        <div style="display: flex;justify-content: center;margin-left: -25px;">
-          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio1"></app-dona-puntos>
+    <div *ngIf="ResultadosPorDominio!=undefined" style="margin-bottom: 10px;">
+      <div class="row" style="margin-bottom: 10px;">
+        <div class="col-12 col-md-3">
+          <div style="display: flex;justify-content: center;margin-left: -25px;">
+            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio1"></app-dona-puntos>
+          </div>
+          <div class="subtitulo">
+            Dominio 1:
+          </div>
+          <div style="font-size: 13px">
+            Mentalidad y Principios de Ágil.
+          </div>
         </div>
-        <div class="subtitulo">
-          Habilidad 1:
+        <div class="col-12 col-md-3">
+          <div style="display: flex;justify-content: center;margin-left: -25px;">
+            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio2"></app-dona-puntos>
+          </div>
+          <div class="subtitulo">
+            Dominio 2:
+          </div>
+          <div style="font-size: 13px">
+            Entrega Orientada al Valor.
+          </div>
         </div>
-        <div style="font-size: 13px">
-          Administrar los recursos de Azure para el aprendizaje automático.
+        <div class="col-12 col-md-3">
+          <div style="display: flex;justify-content: center;margin-left: -25px;">
+            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio3"></app-dona-puntos>
+          </div>
+          <div class="subtitulo">
+            Dominio 3:
+          </div>
+          <div style="font-size: 13px">
+            Involucramiento de los Interesados.
+          </div>
+        </div>
+        <div class="col-12 col-md-3">
+          <div style="display: flex;justify-content: center;margin-left: -25px;">
+            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio4"></app-dona-puntos>
+          </div>
+          <div class="subtitulo">
+            Dominio 4:
+          </div>
+          <div style="font-size: 13px">
+            Desempeño del Equipo.
+          </div>
         </div>
       </div>
-      <div class="col-12 col-md-3">
-        <div style="display: flex;justify-content: center;margin-left: -25px;">
-          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio2"></app-dona-puntos>
+      <div class="row" style="margin-bottom: 10px;">
+        <div class="col-12 col-md-4">
+          <div style="display: flex;justify-content: center;margin-left: -25px;">
+            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio5"></app-dona-puntos>
+          </div>
+          <div class="subtitulo">
+            Dominio 5:
+          </div>
+          <div style="font-size: 13px">
+            Planificación Adaptativa.
+          </div>
         </div>
-        <div class="subtitulo">
-          Habilidad 2:
+        <div class="col-12 col-md-4">
+          <div style="display: flex;justify-content: center;margin-left: -25px;">
+            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio6"></app-dona-puntos>
+          </div>
+          <div class="subtitulo">
+            Dominio 6:
+          </div>
+          <div style="font-size: 13px">
+            Detección y Resolución de Problemas.
+          </div>
         </div>
-        <div style="font-size: 13px">
-          Ejecutar experimentos y entrenar modelos.
-        </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div style="display: flex;justify-content: center;margin-left: -25px;">
-          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio3"></app-dona-puntos>
-        </div>
-        <div class="subtitulo">
-          Habilidad 3:
-        </div>
-        <div style="font-size: 13px">
-          Implementar y poner en funcionamiento soluciones de aprendizaje automático.
-        </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div style="display: flex;justify-content: center;margin-left: -25px;">
-          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio4"></app-dona-puntos>
-        </div>
-        <div class="subtitulo">
-          Habilidad 4:
-        </div>
-        <div style="font-size: 13px">
-          Implementar aprendizaje automático responsable.
+        <div class="col-12 col-md-4">
+          <div style="display: flex;justify-content: center;margin-left: -25px;">
+            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio7"></app-dona-puntos>
+          </div>
+          <div class="subtitulo">
+            Dominio 7:
+          </div>
+          <div style="font-size: 13px">
+            Mejora Continua (Producto, Proceso, Personas).
+          </div>
         </div>
       </div>
     </div>
     <div class="card" *ngIf="Promedio>=70" style="margin-bottom: 10px; font-size: 13px;color:#706E81 ;background-color: #FFFDEE;border-radius: 5px;">
-      Tu puntaje está dentro de lo requerido para aprobar el modo entrenamiento. Conseguiste más del 70% de puntaje en el modo entrenamiento del Microsoft Certified: Azure Data Scientist Associate DP-100.
+      Tu puntaje está dentro de lo requerido para aprobar el modo entrenamiento. Conseguiste más del 75% de aciertos en el modo entrenamiento del examen de certificación PMI Agile Certified Practitioner (PMIACP)®.
     </div>
   </div>
 
@@ -131,7 +168,7 @@
         Instrucciones:
       </div>
       <div style="text-align: justify">
-        Tu puntaje está dentro de lo requerido para aprobar el modo entrenamiento. Conseguiste más del 70% de puntaje en el modo entrenamiento del Microsoft Certified: Azure Data Scientist Associate DP-100.
+        En este modo se te presentarán 120 preguntas, con la estructura del examen de certificación PMI Agile Certified Practitioner (PMIACP)®. Se te mostrará la retroalimentación de cada pregunta luego de responderla, para que así puedas validar tu selección y fortalecer tus conocimientos.
       </div>
       <form (submit)="RegistrarExamen()" [formGroup]="userForm">
         <div class="form-horizontal" id="form-crearExamen">
@@ -163,7 +200,7 @@
         <div *ngIf="ContSimulacionesCompletadas!=0">
           <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
             <ng-container *ngFor="let item of SimulacionesCompletadas">
-              <div  *ngIf="item.idSimuladorAdsaModo==2" class="container" style="border-top: 1px solid #E4E4E4;margin-bottom: 20px;">
+              <div  *ngIf="item.idSimuladorPacpModo==2" class="container" style="border-top: 1px solid #E4E4E4;margin-bottom: 20px;">
                 <div class="row" style="margin-top: 20px;margin-left: 0px;">
                   <div class="col-9">
                     <div>
@@ -213,7 +250,7 @@
         <div *ngIf="ContSimulacionesIncompletas!=0">
           <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
             <ng-container *ngFor="let item of SimulacionesIncompletas">
-              <div  *ngIf="item.idSimuladorAdsaModo==2" class="container" style="border-top: 1px solid #E4E4E4;margin-bottom: 20px;">
+              <div  *ngIf="item.idSimuladorPacpModo==2" class="container" style="border-top: 1px solid #E4E4E4;margin-bottom: 20px;">
                 <div class="row" style="margin-top: 20px;margin-left: 0px;">
                   <div class="col-6">
                     <div>

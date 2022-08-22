@@ -16,14 +16,17 @@ export class BarrasComponent implements OnInit {
   @Input() ResultadoDominio2=0;
   @Input() ResultadoDominio3=0;
   @Input() ResultadoDominio4=0;
+  @Input() ResultadoDominio5=0;
+  @Input() ResultadoDominio6=0;
+  @Input() ResultadoDominio7=0;
 
   public barChartOptions: ChartConfiguration['options'] = {};
   public barChartType: ChartType = 'bar';
   public barChartPlugins = [DatalabelsPlugin];
   public barChartData: ChartData<'bar'> = {
-    labels: [ 'H1', 'H2', 'H3', 'H4'],
+    labels: [ 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7'],
     datasets: [
-      { data: [ 0, 0, 0, 0],
+      { data: [  0, 0, 0, 0, 0, 0, 0],
         label: 'Puntaje',
         backgroundColor: '#00C356',
         hoverBackgroundColor:[
@@ -42,13 +45,19 @@ export class BarrasComponent implements OnInit {
     if(this.ResultadoDominio1!=0 ||
       this.ResultadoDominio2!=0 ||
       this.ResultadoDominio3!=0 ||
-      this.ResultadoDominio4!=0 ){
+      this.ResultadoDominio4!=0 ||
+      this.ResultadoDominio5!=0 ||
+      this.ResultadoDominio6!=0 ||
+      this.ResultadoDominio7!=0 ){
       this.ValoresChart()
     }
     if(this.ResultadoDominio1==0 &&
       this.ResultadoDominio2==0 &&
       this.ResultadoDominio3==0 &&
-      this.ResultadoDominio4==0){
+      this.ResultadoDominio4==0 &&
+      this.ResultadoDominio5==0 &&
+      this.ResultadoDominio6==0 &&
+      this.ResultadoDominio7==0 ){
       this.ValoresChartInicio()
     }
   }
@@ -74,12 +83,15 @@ export class BarrasComponent implements OnInit {
     }
     //Datos
     this.barChartData={
-      labels: [ 'H1', 'H2', 'H3', 'H4'],
+      labels: [ 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7'],
       datasets: [
         { data: [ this.ResultadoDominio1,
           this.ResultadoDominio2,
           this.ResultadoDominio3,
-          this.ResultadoDominio4],
+          this.ResultadoDominio4,
+          this.ResultadoDominio5,
+          this.ResultadoDominio6,
+          this.ResultadoDominio7],
           label: 'Puntaje (%)',
           backgroundColor: '#00C356',
           hoverBackgroundColor:[
@@ -117,9 +129,9 @@ export class BarrasComponent implements OnInit {
     }
     //Datos
     this.barChartData={
-      labels: [ 'H1', 'H2', 'H3', 'H4'],
+      labels: [ 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7'],
       datasets: [
-        { data: [ 0, 0, 0, 0],
+        { data: [ 0, 0, 0, 0, 0, 0, 0],
           label: 'Puntaje',
           backgroundColor: '#00C356',
           hoverBackgroundColor:[

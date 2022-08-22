@@ -16,7 +16,7 @@ export class EstudioReporteComponent implements OnInit {
   ) { }
   public migaPan = [
     {
-      titulo: 'Simulador ADSA',
+      titulo: 'Simulador ACP',
       urlWeb: '/',
     },
     {

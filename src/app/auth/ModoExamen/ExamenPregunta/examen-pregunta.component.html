@@ -28,7 +28,7 @@
                         </div>
                       </div>
                       <div class="card-text btn-block" style="display: flex;">
-                        <b style="color: #9e9e9d">Habilidad: </b>
+                        <b style="color: #9e9e9d">Dominio: </b>
                         <div style=" color: #4a4a4a; font-weight: 400;margin-left: 10px;">
                           {{NombreDominio}}
                         </div>
@@ -88,9 +88,7 @@
                 <ng-container *ngIf="Respuesta.respuestaSelecionada!=1">check_box_outline_blank</ng-container>
                 </i>
                 </div>
-                <div *ngIf="Respuesta.valor==1" [innerHTML]="Respuesta.respuesta | safeHtml" style="color: red;">
-                </div>
-                <div *ngIf="Respuesta.valor==0" [innerHTML]="Respuesta.respuesta| safeHtml">
+                <div [innerHTML]="Respuesta.respuesta| safeHtml">
                 </div>
               </div>
             </ng-container>

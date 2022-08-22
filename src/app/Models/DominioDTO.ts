@@ -3,4 +3,7 @@ export interface ResultadoExamenPorDominioDTO{
   dominio2:number,
   dominio3:number,
   dominio4:number,
+  dominio5:number,
+  dominio6:number,
+  dominio7:number,
 }
