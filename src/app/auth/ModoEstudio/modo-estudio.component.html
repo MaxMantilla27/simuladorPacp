@@ -51,104 +51,28 @@
     </div>
   </div>
   <br>
-  <div *ngIf="ResultadosPorDominio!=undefined" class="titulo" style="font-weight: 400 !important;margin-top: 15px;margin-bottom: 40px;">
+  <div style="font-weight: 400 !important;margin-bottom: 40px;">
     <div class="titulo" style="margin-bottom: 15px">
-      Mejor puntaje por dominios
+    Mejor puntaje por dominios
     </div>
-    <div class="row" style="margin-bottom: 15px;">
+  </div>
+  <div *ngIf="ResultadosPorDominio!=undefined">
+    <div class="row titulo" style="font-weight: 400 !important;margin-bottom: 10px;">
+    <ng-container *ngFor="let itemDominios of ResultadosPorDominio" >
       <div class="col-12 col-md-3">
         <div style="display: flex;justify-content: center;">
-          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio1"></app-dona-puntos>
+          <app-dona-puntos [Puntos]="itemDominios.promedio"></app-dona-puntos>
         </div>
-        <div class="item-leyenda-dona">
-          <div class="subtitulo">
-            Dominio 1:
-          </div>
-          <div style="font-size: 14px">
-            Mentalidad y Principios de Ágil.
-          </div>
+      <div class="item-leyenda-dona">
+        <div class="subtitulo">
+          Dominio {{itemDominios.id}}:
         </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div style="display: flex;justify-content: center;">
-          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio2"></app-dona-puntos>
+        <div style="font-size: 14px">
+          {{itemDominios.nombre}}
         </div>
-        <div class="item-leyenda-dona">
-          <div class="subtitulo">
-            Dominio 2:
-          </div>
-          <div style="font-size: 14px">
-            Entrega Orientada al Valor.
-          </div>
         </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div style="display: flex;justify-content: center;">
-          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio3"></app-dona-puntos>
         </div>
-        <div class="item-leyenda-dona">
-          <div class="subtitulo">
-            Dominio 3:
-          </div>
-          <div style="font-size: 14px">
-            Involucramiento de los Interesados.
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div style="display: flex;justify-content: center;">
-          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio4"></app-dona-puntos>
-        </div>
-        <div class="item-leyenda-dona">
-          <div class="subtitulo">
-            Dominio 4:
-          </div>
-          <div style="font-size: 14px">
-            Desempeño del Equipo.
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row" style="margin-bottom: 10px;">
-      <div class="col-12 col-md-4">
-        <div style="display: flex;justify-content: center;">
-          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio5"></app-dona-puntos>
-        </div>
-        <div class="item-leyenda-dona">
-          <div class="subtitulo">
-            Dominio 5:
-          </div>
-          <div style="font-size: 14px">
-            Planificación Adaptativa.
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-4">
-        <div style="display: flex;justify-content: center;">
-          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio6"></app-dona-puntos>
-        </div>
-        <div class="item-leyenda-dona">
-          <div class="subtitulo">
-            Dominio 6:
-          </div>
-          <div style="font-size: 14px">
-            Detección y Resolución de Problemas.
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-4">
-        <div style="display: flex;justify-content: center;">
-          <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio7"></app-dona-puntos>
-        </div>
-        <div class="item-leyenda-dona">
-          <div class="subtitulo">
-            Dominio 7:
-          </div>
-          <div style="font-size: 14px">
-            Mejora Continua (Producto, Proceso, Personas).
-          </div>
-        </div>
-      </div>
+    </ng-container>
     </div>
   </div>
 
