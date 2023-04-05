@@ -6,6 +6,7 @@ import { loginDTO, UserCredentialsDTO } from '../Models/login';
 import { AspNetUserService } from '../shared/Services/AspNetUsers/asp-net-users.service';
 import { HelperService } from '../shared/Services/helper.service';
 import { SessionStorageService } from '../shared/Services/session-storage.service';
+import { ConfiguracionSimuladorService } from '../shared/Services/ConfiguracionSimulador/configuracion-simulador.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private _AspNetUsers:AspNetUserService,
     private _SessionStorageService:SessionStorageService,
-    private _HelperService:HelperService
+    private _HelperService:HelperService,
+    private _ConfiguracionService: ConfiguracionSimuladorService,
   ) { }
   statuscharge=false;
   public DatoObservable: DatoObservableDTO ={
@@ -43,12 +45,16 @@ export class LoginComponent implements OnInit {
     Recordar: new UntypedFormControl(this.CamposLogin.recordar,Validators.required),
   })
 
+  public listaConfiguracion:any= []
+
   ngOnInit(): void {
+    this.ObtenerConfiguracionSimulador();
     this.userForm.patchValue({
       Email:this.CamposLogin.email,
       Password:this.CamposLogin.password,
       Recordar:this.CamposLogin.recordar,
     })
+
   }
   Login(){
     if(this.userForm.valid){
@@ -76,4 +82,13 @@ export class LoginComponent implements OnInit {
     })
     }
   }
+
+  ObtenerConfiguracionSimulador(){
+    this._ConfiguracionService.ObtenerConfiguracionSimuladorSinToken().subscribe({
+      next:(x)=>{
+       this.listaConfiguracion = x
+      }
+    })
+  }
+
 }
