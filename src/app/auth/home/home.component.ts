@@ -106,6 +106,7 @@ export class HomeComponent implements OnInit {
       this.ObtenerPromedioDominioPorModo();
       this.ListaDominioCombo();
       this.ObtenerConfiguracionSimulador();
+      
     }
   }
 
@@ -122,7 +123,9 @@ export class HomeComponent implements OnInit {
     this._ExamenService.ObtenerMejorExamenPorUsuario().subscribe({
       next:(x)=>{
         if(x!=null){
+          console.log(x)
           this.DominioResultado=x.dominioResultado;
+
         this.ResultadoDominio1=Math.floor(x.dominioResultado[0].desempenio);
         this.ResultadoDominio2=Math.floor(x.dominioResultado[1].desempenio);
         this.ResultadoDominio3=Math.floor(x.dominioResultado[2].desempenio);
@@ -143,6 +146,7 @@ export class HomeComponent implements OnInit {
   ObtenerNivelUsuario(){
     this._ExamenService.ObtenerNivelUsuario().subscribe({
       next:(x)=>{
+        console.log(x)
         this.NivelUsuario=x.rango.nivel;
         this.SiguienteNivelUsuario=x.rango.siguienteNivel;
         this.PuntosNivel = x.puntosNivel;

@@ -19,6 +19,8 @@ export class ConfiguracionSimuladorService {
   }
 
 
-
-  
+  public ObtenerPorcentaje():Observable<any>{
+    return this.http.get<any>(this.urlBase+'/ObtenerConfiguracionSimulador');
+  }
 }
+
