@@ -10,6 +10,7 @@ import { ExamenService } from 'src/app/shared/Services/Examen/examen.service';
 import { SessionStorageService } from 'src/app/shared/Services/session-storage.service';
 import { ResultadoExamenPorDominioDTO } from 'src/app/Models/DominioDTO';
 import { DominioService } from 'src/app/shared/Services/Dominio/dominio.service';
+import { ConfiguracionSimuladorService } from 'src/app/shared/Services/ConfiguracionSimulador/configuracion-simulador.service';
 
 @Component({
   selector: 'app-home',
@@ -23,6 +24,7 @@ export class HomeComponent implements OnInit {
     private _AvatarService:AvatarService,
     private _ExamenService:ExamenService,
     private _DominioService:DominioService,
+    private _ConfiguracionService: ConfiguracionSimuladorService,
     private elementRef: ElementRef
   ) { }
   private signal$ = new Subject();
@@ -92,6 +94,7 @@ export class HomeComponent implements OnInit {
   public ResultadosPorDominio:any;
   public Dominio:any;
   public Take=7;
+  public listaConfiguracion:any = [];
 
   ngOnInit(): void {
 
@@ -102,6 +105,8 @@ export class HomeComponent implements OnInit {
       this.ListaExamenesPorModo();
       this.ObtenerPromedioDominioPorModo();
       this.ListaDominioCombo();
+      this.ObtenerConfiguracionSimulador();
+      
     }
   }
 
@@ -118,7 +123,9 @@ export class HomeComponent implements OnInit {
     this._ExamenService.ObtenerMejorExamenPorUsuario().subscribe({
       next:(x)=>{
         if(x!=null){
+          console.log(x)
           this.DominioResultado=x.dominioResultado;
+
         this.ResultadoDominio1=Math.floor(x.dominioResultado[0].desempenio);
         this.ResultadoDominio2=Math.floor(x.dominioResultado[1].desempenio);
         this.ResultadoDominio3=Math.floor(x.dominioResultado[2].desempenio);
@@ -139,6 +146,7 @@ export class HomeComponent implements OnInit {
   ObtenerNivelUsuario(){
     this._ExamenService.ObtenerNivelUsuario().subscribe({
       next:(x)=>{
+        console.log(x)
         this.NivelUsuario=x.rango.nivel;
         this.SiguienteNivelUsuario=x.rango.siguienteNivel;
         this.PuntosNivel = x.puntosNivel;
@@ -146,6 +154,17 @@ export class HomeComponent implements OnInit {
       }
     })
   }
+
+
+  ObtenerConfiguracionSimulador(){
+    this._ConfiguracionService.ObtenerConfiguracionSimulador().subscribe({
+      next:(x)=>{
+       this.listaConfiguracion = x
+       console.log(this.listaConfiguracion)
+      }
+    })
+  }
+
   ListaExamenesPorModo(){
     this._ExamenService.ResumenSimulacionesPorModo(1).subscribe({
       next:(x)=>{
@@ -184,6 +203,7 @@ export class HomeComponent implements OnInit {
     this._DominioService.ListaDominioCombo().subscribe({
       next:(x)=>{
         this.Dominio=x;
+
       }
     })
 

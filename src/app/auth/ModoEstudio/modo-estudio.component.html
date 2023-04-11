@@ -76,7 +76,6 @@
     </div>
   </div>
 
-
   <!-- Crear simulación de estudio -->
   <div class="card" style="padding:30px;border-radius:20px;">
     <div class="card-body" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding-bottom: 10px;">
@@ -99,158 +98,31 @@
                 Selecciona el dominio que deseas estudiar:
               </div>
               <div class="row">
-                <div *ngIf="DominioSeleccionado!=1" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=1">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%" >
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/ACP-Tento1.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
-                      Mentalidad y Principios de Ágil.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==1" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%" >
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/ACP-Tento1.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
-                      Mentalidad y Principios de Ágil.
-                    </div>
-                  </div>
-                </div>
 
-                <div *ngIf="DominioSeleccionado!=5" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=5">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img  style="height: 50px;" src="../../../assets/iconos/ACP-Tento5.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Planificación Adaptativa.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==5" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/ACP-Tento5.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Planificación Adaptativa.
+                <ng-container *ngFor="let item of ListaLogo">
+                  <div *ngIf="DominioSeleccionado!= item.id" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=item.id">
+                    <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%" >
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src={{item.imgLogo}}>
+                      </div>
+                      <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
+                        {{item.nombre}}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                 
+                  <div *ngIf="DominioSeleccionado == item.id " class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
+                    <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%" >
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src={{item.imgLogo}}>
+                      </div>
+                      <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;" >
+                        {{item.nombre}}
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
 
-              <div class="row">
-                <div *ngIf="DominioSeleccionado!=2" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=2">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/ACP-Tento2.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Entrega Orientada al Valor.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==2" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/ACP-Tento2.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Entrega Orientada al Valor.
-                    </div>
-                  </div>
-                </div>
-
-                <div *ngIf="DominioSeleccionado!=6" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=6">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/ACP-Tento6.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Detección y Resolución de Problemas.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==6" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/ACP-Tento6.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Detección y Resolución de Problemas.
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div *ngIf="DominioSeleccionado!=3" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=3">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/ACP-Tento2.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Involucramiento de los Interesados.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==3" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/ACP-Tento2.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Involucramiento de los Interesados.
-                    </div>
-                  </div>
-                </div>
-
-                <div *ngIf="DominioSeleccionado!=7" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=7">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/ACP-Tento7.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Mejora Continua (Producto, Proceso, Personas).
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==7" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/ACP-Tento7.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Mejora Continua (Producto, Proceso, Personas).
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div *ngIf="DominioSeleccionado!=4" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=4">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/ACP-Tento4.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Desempeño del Equipo.
-                    </div>
-                  </div>
-                </div>
-                <div *ngIf="DominioSeleccionado==4" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                  <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                    <div class="col-md-2" style="display: flex; justify-content: center;">
-                      <img style="height: 50px;" src="../../../assets/iconos/ACP-Tento4.svg">
-                    </div>
-                    <div class="col-md-10" style="font-size:15px;color: white;cursor: pointer;display: flex;align-items: center;">
-                      Desempeño del Equipo.
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -265,20 +137,20 @@
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-              <app-default-button  [confs]="{color:'primary',titulo:'Comenzar'}"
-              [style]="'width:100%;margin-top: 20px;background:#FF7424'" [disabled]="BotonResgistrar"></app-default-button>
-            </div>
-            <div class="col-md-3"></div>
-
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <app-default-button  [confs]="{color:'primary',titulo:'Comenzar'}"
+            [style]="'width:100%;margin-top: 20px;background:#FF7424'" [disabled]="BotonResgistrar"></app-default-button>
           </div>
-        </form>
+          <div class="col-md-3"></div>
 
-      </div>
+        </div>
+      </form>
+
     </div>
-    <br>
+  </div>
+  <br>
   <!-- Simulaciones completadas -->
   <div class="card" style="padding:30px;border-radius:20px;">
     <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
@@ -289,7 +161,7 @@
         <div *ngIf="ContSimulacionesCompletadas!=0">
           <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding:0px;">
             <ng-container *ngFor="let item of SimulacionesCompletadas">
-              <div  *ngIf="item.idSimuladorPacpModo==1" style="border-bottom: 1px solid #E4E4E4;padding-bottom: 15px;">
+              <div  *ngIf="item.idSimuladorAwsModo==1" style="border-bottom: 1px solid #E4E4E4;padding-bottom: 15px;">
                 <div class="row texto-contenido" style="margin-top: 20px;margin-left: 0px;">
                   <div class="col-md-4">
                     <div style="padding-top: 10px; padding-bottom: 10px;">
@@ -345,7 +217,7 @@
         <div *ngIf="ContSimulacionesIncompletas!=0">
           <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding:0px; ">
             <ng-container *ngFor="let item of SimulacionesIncompletas">
-              <div  *ngIf="item.idSimuladorPacpModo==1" class="container" style="border-bottom: 1px solid #E4E4E4;padding: 0px;">
+              <div  *ngIf="item.idSimuladorAwsModo==1" class="container" style="border-bottom: 1px solid #E4E4E4;padding: 0px;">
                 <div class="row texto-contenido" style="margin-top: 20px;margin-left: 0px;margin-bottom: 15px;">
                   <div class="col-md-6">
                     <div>
