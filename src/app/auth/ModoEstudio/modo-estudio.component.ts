@@ -131,6 +131,7 @@ export class ModoEstudioComponent implements OnInit {
           if(y.idEstadoExamen==3 && y.idSimuladorPacpModo==1){
             this.ContSimulacionesCompletadas=x.length;
           }
+
         })
       }
     })
